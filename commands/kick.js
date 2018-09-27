@@ -1,6 +1,6 @@
 module.exports = {
     name: 'kick',
-    description: 'kicks a user from the server',
+    description: 'kick a user from the server',
     guildOnly: true,
     args: true,
     usage: '<@user>',
