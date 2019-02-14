@@ -67,7 +67,7 @@ else {
 }
 
 try {
-    command.execute(message, args, emojis);
+    command.execute(message, args);
 }
 catch (error) {
     console.error(error);
