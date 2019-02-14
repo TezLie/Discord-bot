@@ -6,8 +6,8 @@ module.exports = {
   	usage: '<argument> {argument}...',
     execute(message, args) {
         if (args[0] === 'foo') {
-			return message.channel.send('bar');
+			return message.channel.send(`bar`);
 		}
-		message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+		return message.channel.send(`Command name: ${command}\nArguments: ${args}`);
     },
 };
