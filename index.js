@@ -19,13 +19,13 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-if (!message.content.startsWith(prefix) || message.author.bot) {
-    if (!message.content.includes('no u')) return;
-}
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+
 const args = message.content.slice(prefix.length).split(/ +/);
 const commandName = args.shift().toLowerCase();
-if (!client.commands.has(commandName)) return;
-
+if (!client.commands.has(commandName)) {
+    if (!client.commands.has('no u')) return;
+}
 const command = client.commands.get(commandName);
 
 if (command.guildOnly && message.channel.type !== 'text') {
@@ -67,7 +67,7 @@ else {
 }
 
 try {
-    command.execute(message, args);
+    command.execute(message, args, emojis);
 }
 catch (error) {
     console.error(error);

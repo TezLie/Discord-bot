@@ -3,6 +3,7 @@ module.exports = {
     description: `Displays a user's avatar`,
     guildOnly: false,
     args: false,
+    usage: '<@user>',
     execute(message, args) {
         if (!message.mentions.users.size) {
 			return message.channel.send(`Your avatar: ${message.author.displayAvatarURL}`);
