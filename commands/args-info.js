@@ -2,12 +2,12 @@ module.exports = {
     name: 'args-info',
 	description: 'arguments',
 	guildOnly: false,
-	args: true,
-	usage: '<argument> {argument}...',
+  	args: true,
+  	usage: '<argument> {argument}...',
     execute(message, args) {
-		if (args[0] === 'foo') {
-			return message.channel.send('bar');
+        if (args[0] === 'foo') {
+			return message.channel.send(`bar`);
 		}
-		message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+		return message.channel.send(`Command name: ${command}\nArguments: ${args}`);
     },
 };

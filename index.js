@@ -19,12 +19,13 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 const args = message.content.slice(prefix.length).split(/ +/);
 const commandName = args.shift().toLowerCase();
-if (!client.commands.has(commandName)) return;
-
+if (!client.commands.has(commandName)) {
+    if (!client.commands.has('no u')) return;
+}
 const command = client.commands.get(commandName);
 
 if (command.guildOnly && message.channel.type !== 'text') {
@@ -38,8 +39,8 @@ if (command.args && !args.length) {
              reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
         }
 
-        return message.channel.send(reply);
-    }
+    return message.channel.send(reply);
+}
 
 if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Discord.Collection());
