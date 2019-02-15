@@ -19,7 +19,9 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot || message.channel === '545269699664150528') {
+        return console.log('Debug');
+    }
 
 const args = message.content.slice(prefix.length).split(/ +/);
 const commandName = args.shift().toLowerCase();

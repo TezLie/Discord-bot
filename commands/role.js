@@ -5,7 +5,10 @@ module.exports = {
 	args: true,
 	usage: '[Legend]',
     execute(message, args) {
-			if (args === 'wraith') {
+			console.log('debug2');
+			message.channel.send(args)
+			if (args = 'wraith') {
+				console.log('debug3');
 				message.author.addrole('545527370514432000')
 				.then(console.log)
 				.catch(console.error);
