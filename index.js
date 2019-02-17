@@ -22,11 +22,13 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot || message.channel === '545269699664150528') {
         return console.log('Debug');
     }
-
 const args = message.content.slice(prefix.length).split(/ +/);
 const commandName = args.shift().toLowerCase();
 if (!client.commands.has(commandName)) return;
-
+    console.log('debug3')
+    message.author.addrole("545527370514432000")
+    .then(console.log)
+    .catch(console.error);
 const command = client.commands.get(commandName);
 
 if (command.guildOnly && message.channel.type !== 'text') {
@@ -67,7 +69,7 @@ else {
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 }
 try {
-    command.execute(message, args, client);
+    command.execute(message, args);
 }
 catch (error) {
     console.error(error);

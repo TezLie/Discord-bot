@@ -4,14 +4,11 @@ module.exports = {
 	guildOnly: true,
 	args: true,
 	usage: '[Legend]',
-    execute(message, args, client) {
+    execute(message, args) {
 			console.log('debug2');
 			message.channel.send(args)
 			if (args = 'wraith') {
-				let userToModify = message.member;
-				message.author.message('545527370514432000')
-				.then(console.log)
-				.catch(console.error);
+				message.author.send('545527370514432000')
 			}
 			if (args === 'mirage') {
 				message.author.addrole('545527348896727042')
